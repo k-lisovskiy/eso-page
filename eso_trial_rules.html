@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Time Guild - Trial Rules and Etiquette</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Crimson Text', serif;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+                url('https://cdn2.steamgriddb.com/hero/25506cad5c7d36ec1c1b26b2e904ea59.png') center/cover no-repeat fixed;
+            color: #e8dcc0;
+            line-height: 1.7;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(139, 69, 19, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(218, 165, 32, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 10%, rgba(75, 0, 130, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            padding: 60px 0;
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 10, 5, 0.7)),
+                radial-gradient(circle at center, rgba(218, 165, 50, 0.1), transparent);
+            border-radius: 20px;
+            border: 2px solid rgba(218, 165, 50, 0.4);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #daa520, #cd853f, #daa520, transparent);
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .eso-logo {
+            width: 400px;
+            height: auto;
+            margin-bottom: 30px;
+            filter: 
+                drop-shadow(0 0 20px rgba(218, 165, 50, 0.4))
+                drop-shadow(0 0 40px rgba(0, 0, 0, 0.8));
+            transition: all 0.3s ease;
+        }
+        
+        .eso-logo:hover {
+            filter: 
+                drop-shadow(0 0 30px rgba(218, 165, 50, 0.6))
+                drop-shadow(0 0 60px rgba(0, 0, 0, 0.9))
+                brightness(1.1);
+            transform: scale(1.02);
+        }
+        
+        .guild-name {
+            font-family: 'Cinzel', serif;
+            font-size: 3.2em;
+            font-weight: 700;
+            color: #daa520;
+            text-shadow: 
+                2px 2px 4px rgba(0,0,0,0.8), 
+                0 0 20px rgba(218, 165, 50, 0.5),
+                0 0 40px rgba(218, 165, 50, 0.3);
+            margin: 25px 0;
+            letter-spacing: 4px;
+            position: relative;
+        }
+        
+        .guild-name::before, .guild-name::after {
+            content: '⚔';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #cd853f;
+            font-size: 0.6em;
+            text-shadow: 0 0 10px rgba(205, 133, 63, 0.8);
+        }
+        
+        .guild-name::before {
+            left: -50px;
+        }
+        
+        .guild-name::after {
+            right: -50px;
+            transform: translateY(-50%) scaleX(-1);
+        }
+        
+        .subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2em;
+            font-weight: 400;
+            color: #cd853f;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        
+        .guild-motto {
+            font-style: italic;
+            color: #b8860b;
+            font-size: 1.3em;
+            margin-top: 25px;
+            padding: 18px 35px;
+            border: 2px solid rgba(218, 165, 50, 0.4);
+            border-radius: 30px;
+            background: 
+                linear-gradient(145deg, rgba(0, 0, 0, 0.6), rgba(20, 10, 5, 0.4));
+            display: inline-block;
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.4em;
+            font-weight: 600;
+            color: #cd853f;
+            margin: 50px 0 35px 0;
+            padding: 30px 0;
+            border-top: 4px solid rgba(205, 133, 63, 0.5);
+            border-bottom: 4px solid rgba(205, 133, 63, 0.5);
+            text-align: center;
+            position: relative;
+            background: 
+                linear-gradient(90deg, transparent, rgba(205, 133, 63, 0.2), transparent),
+                repeating-linear-gradient(90deg, transparent, transparent 15px, rgba(218, 165, 50, 0.08) 15px, rgba(218, 165, 50, 0.08) 30px);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        h2::before, h2::after {
+            content: '⚜';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #daa520;
+            font-size: 0.8em;
+            text-shadow: 0 0 15px rgba(218, 165, 50, 0.7);
+        }
+        
+        h2::before {
+            left: 40px;
+        }
+        
+        h2::after {
+            right: 40px;
+        }
+        
+        .section {
+            background: 
+                linear-gradient(145deg, rgba(0, 0, 0, 0.85), rgba(20, 10, 5, 0.7)),
+                repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(139, 69, 19, 0.05) 60px, rgba(139, 69, 19, 0.05) 120px);
+            border: 3px solid rgba(218, 165, 50, 0.4);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 45px;
+            box-shadow: 
+                0 15px 50px rgba(0, 0, 0, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(15px);
+            position: relative;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #daa520, #cd853f, #8b4513, #cd853f, #daa520, transparent);
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .section::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 1px solid rgba(218, 165, 50, 0.15);
+            border-radius: 15px;
+            pointer-events: none;
+        }
+        
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6em;
+            font-weight: 600;
+            color: #daa520;
+            margin: 35px 0 25px 0;
+            position: relative;
+            padding: 20px 0 20px 40px;
+            border-left: 5px solid #cd853f;
+            background: 
+                linear-gradient(90deg, rgba(205, 133, 63, 0.15), transparent),
+                linear-gradient(90deg, rgba(218, 165, 50, 0.05), transparent);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+        
+        h3::before {
+            content: '▸';
+            position: absolute;
+            left: 15px;
+            color: #cd853f;
+            font-size: 1.3em;
+            text-shadow: 0 0 8px rgba(205, 133, 63, 0.6);
+        }
+        
+        ul {
+            list-style: none;
+            margin: 25px 0;
+        }
+        
+        li {
+            margin: 20px 0;
+            padding-left: 40px;
+            position: relative;
+            font-size: 1.15em;
+            line-height: 1.9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        li::before {
+            content: '◈';
+            position: absolute;
+            left: 15px;
+            color: #daa520;
+            font-weight: bold;
+            text-shadow: 0 0 8px rgba(218, 165, 50, 0.6);
+            font-size: 1.1em;
+        }
+        
+        li li {
+            margin-left: 30px;
+            font-size: 1.05em;
+            margin: 15px 0;
+        }
+        
+        li li::before {
+            content: '◦';
+            color: #cd853f;
+            left: -10px;
+            text-shadow: 0 0 5px rgba(205, 133, 63, 0.5);
+        }
+        
+        strong {
+            color: #daa520;
+            font-weight: 600;
+            text-shadow: 0 0 8px rgba(218, 165, 50, 0.4);
+        }
+        
+        em {
+            color: #f4a460;
+            font-style: italic;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(218, 165, 50, 0.25), rgba(139, 69, 19, 0.25));
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(218, 165, 50, 0.5);
+            box-shadow: 
+                inset 0 1px 3px rgba(0, 0, 0, 0.4),
+                0 1px 2px rgba(218, 165, 50, 0.3);
+        }
+        
+        .story-mode-section {
+            border-color: rgba(138, 43, 226, 0.5);
+        }
+        
+        .story-mode-section::before {
+            background: linear-gradient(90deg, transparent, #8a2be2, #9370db, #ba55d3, #9370db, #8a2be2, transparent);
+        }
+        
+        .story-mode-section h2 {
+            color: #ba55d3;
+        }
+        
+        .chill-section {
+            border-color: rgba(32, 178, 170, 0.5);
+        }
+        
+        .chill-section::before {
+            background: linear-gradient(90deg, transparent, #20b2aa, #48d1cc, #40e0d0, #48d1cc, #20b2aa, transparent);
+        }
+        
+        .chill-section h2 {
+            color: #48d1cc;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 70px;
+            padding: 50px;
+            border-top: 4px solid rgba(218, 165, 50, 0.4);
+            border-bottom: 4px solid rgba(218, 165, 50, 0.4);
+            color: #cd853f;
+            font-style: italic;
+            background: 
+                linear-gradient(145deg, rgba(0, 0, 0, 0.8), rgba(20, 10, 5, 0.6)),
+                linear-gradient(90deg, transparent, rgba(218, 165, 50, 0.08), transparent);
+            position: relative;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+        
+        .footer::before {
+            content: '⚔ ⚜ ⚔';
+            display: block;
+            margin-bottom: 25px;
+            font-size: 28px;
+            color: #daa520;
+            text-shadow: 0 0 15px rgba(218, 165, 50, 0.7);
+        }
+        
+        .footer-text {
+            font-size: 1.4em;
+            font-family: 'Cinzel', serif;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        
+        .footer-tagline {
+            font-size: 1.1em;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+        }
+        
+        /* Dragon border decorations */
+        .dragon-border {
+            position: relative;
+            margin: 25px 0;
+        }
+        
+        .dragon-border::before, .dragon-border::after {
+            content: '🐉';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 22px;
+            opacity: 0.7;
+            filter: drop-shadow(0 0 8px rgba(218, 165, 50, 0.6));
+        }
+        
+        .dragon-border::before {
+            left: -35px;
+        }
+        
+        .dragon-border::after {
+            right: -35px;
+            transform: translateY(-50%) scaleX(-1);
+        }
+        
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 16px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid rgba(139, 69, 19, 0.4);
+            border-radius: 8px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #daa520, #cd853f, #8b4513);
+            border-radius: 8px;
+            border: 2px solid rgba(0, 0, 0, 0.4);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #ffd700, #daa520, #cd853f);
+            box-shadow: 
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                0 0 10px rgba(218, 165, 50, 0.5);
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .eso-logo {
+                width: 280px;
+            }
+            
+            .guild-name {
+                font-size: 2.4em;
+            }
+            
+            .guild-name::before, .guild-name::after {
+                display: none;
+            }
+            
+            h2 {
+                font-size: 1.9em;
+            }
+            
+            .section {
+                padding: 30px;
+            }
+            
+            h2::before, h2::after {
+                display: none;
+            }
+            
+            .dragon-border::before, .dragon-border::after {
+                display: none;
+            }
+        }
+        
+        /* Animation for immersion */
+        @keyframes shimmer {
+            0% { opacity: 0.9; }
+            50% { opacity: 1; }
+            100% { opacity: 0.9; }
+        }
+        
+        @keyframes glow {
+            0% { text-shadow: 2px 2px 4px rgba(0,0,0,0.8), 0 0 20px rgba(218, 165, 50, 0.5); }
+            50% { text-shadow: 2px 2px 4px rgba(0,0,0,0.8), 0 0 30px rgba(218, 165, 50, 0.7); }
+            100% { text-shadow: 2px 2px 4px rgba(0,0,0,0.8), 0 0 20px rgba(218, 165, 50, 0.5); }
+        }
+        
+        .eso-logo {
+            animation: shimmer 4s ease-in-out infinite;
+        }
+        
+        .guild-name {
+            animation: glow 3s ease-in-out infinite;
+        }
+        
+        /* Parallax effect for background */
+        body {
+            background-attachment: fixed;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://cdn2.steamgriddb.com/logo/2fedf51adb7da7d37f99cca6c69549b5.png" alt="The Elder Scrolls Online" class="eso-logo">
+            <div class="guild-name">Story Time</div>
+            <div class="subtitle">Trial Rules & Etiquette</div>
+            <div class="guild-motto">Where every adventure becomes a legend</div>
+        </div>
+        
+        <div class="section">
+            <h2>General Rules of Engagement</h2>
+            
+            <h3>Trial Access Requirements:</h3>
+            <ul>
+                <li>Ensure that you possess either <strong>ESO+</strong> or access to the <strong>relevant chapter/DLC pack</strong> for the trial you're signing up for. The specific requirements will be listed in the signup sheet on Discord.
+                    <ul>
+                        <li>This requirement does not apply to Aetherian Archive, Hel Ra Citadel, Sanctum Ophidia, or Halls of Fabrication as all four are accessible in the base game.</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h3>Duration & Commitment:</h3>
+            <ul>
+                <li>Each trial will have a stated duration on its signup sheet. This will typically be <strong>2 hours</strong>, but may vary depending on the trial. By signing up for a trial, you are pledging to <strong>be available for this entire duration</strong>.
+                    <ul>
+                        <li>If you're concerned about your availability, inform the trial leader. Depending on the trial length and/or the experience level of the group, the trial leader may decide that a shorter availability window is acceptable. The trial leader has the final say on this matter.</li>
+                    </ul>
+                </li>
+                
+                <li>The 2-hour window exists because, although most trials can be completed in a much shorter time, we want to account for delays that can happen both before and after the trial has started.</li>
+            </ul>
+            
+            <h3>Punctuality & Attendance:</h3>
+            <ul>
+                <li>A reminder will usually be sent out before the trial is due to begin. This is typically <strong>20-30 minutes</strong> before the start time and is set by the trial organiser when they create the event.</li>
+                
+                <li>Though you don't have to be online and ready to go as soon as the reminder is sent, you should ensure that you are prepared by the trial start time.
+                    <ul>
+                        <li>If you will be up to <strong>10 minutes late</strong>, please mark yourself as 'Late' on the roster and let the trial leader know when you'll be arriving.</li>
+                        <li>If you won't arrive until <strong>more than 10 minutes after</strong> the trial start time, please mark yourself as 'Absent' on the roster.</li>
+                    </ul>
+                </li>
+                
+                <li>If you're <strong>not listed as 'Late'</strong> and still aren't online <strong>5 minutes after</strong> the trial start time, you will <strong>forfeit</strong> your spot and a replacement will be found from either the roster or from guild chat.</li>
+            </ul>
+            
+            <h3>Gear Sharing:</h3>
+            <ul>
+                <li>If you receive gear drops in a trial that you don't need for your collection or to equip characters, you are <strong>encouraged but not required</strong> to offer these items in party chat after completing the trial in case there are other group members who need them.</li>
+            </ul>
+            
+            <h3>Dungeon Mode Consistency:</h3>
+            <ul>
+                <li>The guild's dungeon mode rules apply during trial runs as well. The mode being used in a particular trial will be stated in the title and, as a reminder, story mode is the default if no mode has been listed.
+                    <ul>
+                        <li><strong>You will be expected to follow the rules and etiquette of the dungeon mode being used for any trial you're participating in</strong>.</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h3 class="dragon-border">Respectfulness & Guild Culture:</h3>
+            <ul>
+                <li>Show patience and compassion for your fellow adventurers regardless of their skill level.</li>
+                <li>Remember that Story Time is a <em><strong>casual</strong></em> guild and, as such, many of its members are inexperienced and/or uninterested in the highest level of PVE content.</li>
+                <li>Do not belittle or disparage fellow trial members, whether it's in party chat, guild chat, or in private whispers to them.</li>
+                <li>Do not discuss DPS in absolute terms - people can participate successfully in normal trials even with a fraction of the DPS demanded for veteran hard mode trials. To suggest otherwise risks discouraging people from taking part in normal trial content.</li>
+            </ul>
+        </div>
+        
+        <div class="section story-mode-section">
+            <h2>Story Mode Trials</h2>
+            
+            <ul>
+                <li>These trials are run strictly according to the guild rules for story mode runs. <strong>Anyone participating will be expected to <em>know and respect</em> these rules</strong>.</li>
+                
+                <li>The focus will be on savoring the narrative of the trials by listening to quest dialogue and any ambient dialogue in the trial itself.
+                    <ul>
+                        <li>Please note that the trial quest is <strong>automatically shared</strong> with all players in the trial instance when one player picks it up. You should reject this autoshare if you want to speak to the quest giver yourself.</li>
+                        <li>In general, story mode trials will operate with a <strong>'+Lore' rule</strong>, which means <strong>players are free to take their time reading lore books</strong> found in trials as they go. This can be amended if the entire trial group agrees they want to skip the +Lore part, but if one player wants to read lorebooks then the rest of the group is expected to respect that.</li>
+                    </ul>
+                </li>
+                
+                <li>While some mechanical explanations may be available if necessary, players are strongly advised to <strong>familiarize themselves with the mechanics beforehand</strong> as this kind of trial will not have a learning focus.</li>
+                
+                <li>Be considerate and aware of your companions at all times and remember that some or all of them may still be listening to dialogue or reading lore books.</li>
+                
+                <li>Don't rush ahead of the group or put pressure on other group members to complete the trial faster at any point during the run.</li>
+                
+                <li><strong>Ready checks are absolute</strong>. No one is to pull anything or start any boss fight unless <strong>every member</strong> of the group has confirmed they're ready. If a ready check occurs while you're still listening to dialogue or reading a lore book, <strong>don't feel pressured</strong> - just hit 'No' and the rest of the group <em>will</em> wait for you.</li>
+                
+                <li>Discord VC is <strong>not required</strong> for story mode trials. If you do decide to use VC, you're encouraged to deafen yourself while listening to story dialogue so that you aren't disturbed by any other activity in the voice channel.</li>
+            </ul>
+        </div>
+        
+        <div class="section chill-section">
+            <h2>Chill Trials</h2>
+            
+            <ul>
+                <li>These trials are run under relaxed rules without a set goal outside of completing the trial and enjoying each other's company.
+                    <ul>
+                        <li>However, a chill trial can be adapted to fit the needs of the participants. If everyone is familiar with the trial, there's no need for explanations. If there are members who do need explanations, the trial can take on more of a learning aspect.</li>
+                        <li>That being said, the relaxed nature and the difficulty <strong>should always be respected</strong>. If the signup says we're doing a normal trial, we're doing a normal trial.</li>
+                    </ul>
+                </li>
+                
+                <li>Prior knowledge of the trial is <strong>not required</strong>, nor should experienced players feel discouraged from joining.</li>
+                
+                <li>Discord VC is not required but is <strong>encouraged</strong>, especially for those who need explanations for mechanics.</li>
+                
+                <li>Be considerate and aware of your trial companions at all times. Don't go rushing off ahead or pull mobs or bosses before the rest of the group is ready. <strong>Avoid sounding too forceful</strong> when giving instructions or making requests in VC.</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-text">Story Time Guild</div>
+            <div class="footer-tagline">May your trials be legendary and your stories eternal</div>
+        </div>
+    </div>
+</body>
+</html>
